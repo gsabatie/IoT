@@ -16,7 +16,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.IN)
 
 
-client = mqtt.client() # mqtt client
+client = mqtt.Client() # mqtt client
 
 # Read light
 def RCtime (RCpin):
