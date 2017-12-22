@@ -65,20 +65,21 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    if msg.topic is "IoT/redLed":
-        if msg.payload is "1" and GPIO.input(redLed) is GPIO.LOW:
+    print(type(msg.payload))
+    if msg.topic == "IoT/redLed":
+        if msg.payload == "1" and GPIO.input(redLed) is GPIO.LOW:
             let_the_sun_shine(redLed)
-        elif msg.payload is "0" and GPIO.input(redLed) is GPIO.HIGH:
+        elif msg.payload == "0" and GPIO.input(redLed) is GPIO.HIGH:
             hello_darkness_my_old_friend(redLed)
     if msg.topic is "IoT/whiteLed":
-        if msg.payload is "1" and GPIO.input(whiteLed) is GPIO.LOW:
+        if msg.payload is 1 and GPIO.input(whiteLed) is GPIO.LOW:
             let_the_sun_shine(whiteLed)
-        elif msg.payload is "0" and GPIO.input(whiteLed) is GPIO.HIGH:
+        elif msg.payload is 0 and GPIO.input(whiteLed) is GPIO.HIGH:
             hello_darkness_my_old_friend(whiteLed)
     if msg.topic is "IoT/greenLed":
-        if msg.payload is "1" and GPIO.input(greenLed) is GPIO.LOW:
+        if msg.payload is 1 and GPIO.input(greenLed) is GPIO.LOW:
             let_the_sun_shine(greenLed)
-        elif msg.payload is "0" and GPIO.input(greenLed) is GPIO.HIGH:
+        elif msg.payload is 0 and GPIO.input(greenLed) is GPIO.HIGH:
             hello_darkness_my_old_friend(greenLed)
     print(msg.topic+" "+str(msg.payload))
 
