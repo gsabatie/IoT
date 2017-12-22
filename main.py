@@ -78,9 +78,9 @@ def hello_darkness_my_old_friend(pin):
 
 # main
 if __name__ == '__main__':
-    let_the_sun_shine(redPin)
-    let_the_sun_shine(greenPin)
-    let_the_sun_shine(whitePin)
+    let_the_sun_shine(redLed)
+    let_the_sun_shine(greenLed)
+    let_the_sun_shine(whiteLed)
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect("192.168.43.83", 1883, 60)
