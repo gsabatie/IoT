@@ -30,7 +30,6 @@ client = mqtt.Client()
 
 # signal handler for sigint
 def signal_handler(signal, frame):
-    print("TOTO")
     client.disconnect()
     client.loop_stop(force=True)
     sys.exit(0)
@@ -50,10 +49,9 @@ def readLumi(RCpin):
 
 # Read temperature and humidity
 def readTempHum():
-    while True:
-        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 22)
-        client.publish("IoT/humidity", humidity)
-        client.publish("IoT/temperature", temperature)
+    humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 22)
+    client.publish("IoT/humidity", humidity)
+    client.publish("IoT/temperature", temperature)
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -103,5 +101,6 @@ if __name__ == '__main__':
     client.subscribe("IoT/greenLed")
     client.loop_start()
     while True:
-        readTempHum()
         readLumi(6)
+        readTempHum()
+
