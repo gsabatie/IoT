@@ -50,6 +50,7 @@ def signal_handler(signal, frame):
     t._Thread_stop()
     l._Thread_stop()
     client.disconnect()
+    client.loop_stop()
     sys.exit(0)
 
 # Read light
@@ -121,4 +122,4 @@ if __name__ == '__main__':
     t.start()
     time.sleep(0.5)
     l.start()
-    client.loop_forever()
+    client.loop_start()
