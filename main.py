@@ -10,6 +10,8 @@ import paho.mqtt.client as mqtt #mqtt client lib
 # python related #
 import time #time lib
 import threading # thread lib
+import signal # signal lib
+import sys # sys lib
 
 # setting RPI to use GPIO #
 GPIO.setmode(GPIO.BCM)
@@ -27,6 +29,16 @@ GPIO.output(15, GPIO.LOW)
 GPIO.output(18, GPIO.LOW)
 client = mqtt.Client() # mqtt client
 
+#Threads
+l = LumiThread()
+t = TempHumThread()
+
+
+# signal handler for sigint
+def signal_handler(signal, frame):
+    t._Thread_stop()
+    l._Thread_stop()
+    sys.exit(0)
 # Read light
 def readLumi (RCpin):
     reading = 0
@@ -103,8 +115,6 @@ if __name__ == '__main__':
     client.subscribe("IoT/whiteLed")
     client.subscribe("IoT/redLed")
     client.subscribe("IoT/greenLed")
-    t = TempHumThread()
-    l = LumiThread()
     t.start()
     time.sleep(0.5)
     l.start()
