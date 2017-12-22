@@ -15,6 +15,10 @@ import threading # thread lib
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.IN)
 
+# Leds pins
+redLed = 14
+whiteLed = 15
+greenLed = 18
 
 client = mqtt.Client() # mqtt client
 
@@ -50,8 +54,6 @@ class TempHumThread(threading.Thread):
     def run(self):
         readTempHum()
         
-#----------------#
-
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -60,7 +62,19 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
 
-#---------------#
+
+# Takes a pin as parameter and sets the state to HIGH. Used to light on leds
+# lol. fun name.
+def let_the_sun_shine(pin):
+    if GPIO.input(pin) is GPIO.LOW:
+        GPIO.output(pin, GPIO.HIGH)
+
+
+# Takes a pin as parameter and sets the state to LOW if needed. Used to light off leds
+# lol. such fun, much name, wow
+def hello_darkness_my_old_friend(pin):
+    if GPIO.input(pin) is GPIO.HIGH:
+        GPIO.output(pin, GPIO.LOW)
 
 # main
 if __name__ == '__main__':
