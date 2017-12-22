@@ -30,6 +30,17 @@ GPIO.output(18, GPIO.LOW)
 client = mqtt.Client() # mqtt client
 
 #Threads
+# light Thread
+class LumiThread(threading.Thread):
+    def run(self):
+        while True:
+            readLumi(6)
+
+# temp and humidity thread
+class TempHumThread(threading.Thread):
+    def run(self):
+        readTempHum()
+
 l = LumiThread()
 t = TempHumThread()
 
@@ -59,17 +70,6 @@ def readTempHum():
         client.publish("IoT/humidity", humidity)
         client.publish("IoT/temperature", temperature)
 
-# light Thread
-class LumiThread(threading.Thread):
-    def run(self):
-        while True:
-            readLumi(6)
-
-# temp and humidity thread
-class TempHumThread(threading.Thread):
-    def run(self):
-        readTempHum()
-        
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
