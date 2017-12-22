@@ -47,6 +47,7 @@ t = TempHumThread()
 
 # signal handler for sigint
 def signal_handler(signal, frame):
+    print("TOTO")
     t._Thread_stop()
     l._Thread_stop()
     client.disconnect()
