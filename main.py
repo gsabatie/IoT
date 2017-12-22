@@ -19,6 +19,9 @@ GPIO.setup(4,GPIO.IN)
 redLed = 14
 whiteLed = 15
 greenLed = 18
+GPIO.setup(14, GPIO.OUT)
+GPIO.setup(15, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
 
 client = mqtt.Client() # mqtt client
 
