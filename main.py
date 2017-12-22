@@ -51,7 +51,7 @@ def signal_handler(signal, frame):
     t._Thread_stop()
     l._Thread_stop()
     client.disconnect()
-    client.loop_stop()
+    client.loop_stop(force=True)
     sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
 # Read light
