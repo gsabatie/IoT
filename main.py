@@ -120,6 +120,10 @@ if __name__ == '__main__':
     client.subscribe("IoT/redLed")
     client.subscribe("IoT/greenLed")
     t.start()
+    t.daemon = True
     time.sleep(0.5)
     l.start()
+    l.daemon = True
     client.loop_start()
+    while True: # keep main thread alive
+        time.sleep(1)
