@@ -53,7 +53,7 @@ def signal_handler(signal, frame):
     client.disconnect()
     client.loop_stop()
     sys.exit(0)
-
+signal.signal(signal.SIGINT, signal_handler)
 # Read light
 def readLumi (RCpin):
     reading = 0
@@ -113,7 +113,6 @@ def hello_darkness_my_old_friend(pin):
 
 # main
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, signal_handler)
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect("192.168.43.83", 1883, 60)
