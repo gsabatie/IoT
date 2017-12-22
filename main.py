@@ -49,6 +49,7 @@ t = TempHumThread()
 def signal_handler(signal, frame):
     t._Thread_stop()
     l._Thread_stop()
+    client.disconnext()
     sys.exit(0)
 # Read light
 def readLumi (RCpin):
