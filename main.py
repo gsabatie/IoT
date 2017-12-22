@@ -24,36 +24,17 @@ greenLed = 18
 GPIO.setup(14, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
-GPIO.output(14, GPIO.LOW)
-GPIO.output(15, GPIO.LOW)
-GPIO.output(18, GPIO.LOW)
-client = mqtt.Client() # mqtt client
 
-#Threads
-# light Thread
-class LumiThread(threading.Thread):
-    def run(self):
-        while True:
-            readLumi(6)
-
-# temp and humidity thread
-class TempHumThread(threading.Thread):
-    def run(self):
-        readTempHum()
-
-l = LumiThread()
-t = TempHumThread()
-
+# mqtt client
+client = mqtt.Client()
 
 # signal handler for sigint
 def signal_handler(signal, frame):
     print("TOTO")
-    t._Thread_stop()
-    l._Thread_stop()
     client.disconnect()
     client.loop_stop(force=True)
     sys.exit(0)
-signal.signal(signal.SIGINT, signal_handler)
+
 # Read light
 def readLumi (RCpin):
     reading = 0
@@ -113,15 +94,14 @@ def hello_darkness_my_old_friend(pin):
 
 # main
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect("192.168.43.83", 1883, 60)
     client.subscribe("IoT/whiteLed")
     client.subscribe("IoT/redLed")
     client.subscribe("IoT/greenLed")
-    t.start()
-    time.sleep(0.5)
-    l.start()
     client.loop_start()
-    while True: # keep main thread alive
-        time.sleep(1)
+    while True:
+        readTempHum()
+        readLumi(6)
