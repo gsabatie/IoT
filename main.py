@@ -36,7 +36,7 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 # Read light
-def readLumi (RCpin):
+def readLumi(RCpin):
     reading = 0
     GPIO.setup(RCpin, GPIO.OUT)
     GPIO.output(RCpin, GPIO.LOW)
