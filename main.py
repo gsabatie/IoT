@@ -28,7 +28,7 @@ GPIO.output(18, GPIO.LOW)
 client = mqtt.Client() # mqtt client
 
 # Read light
-def RCtime (RCpin):
+def readLumi (RCpin):
     reading = 0
     GPIO.setup(RCpin, GPIO.OUT)
     GPIO.output(RCpin, GPIO.LOW)
@@ -46,13 +46,12 @@ def readTempHum():
         humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 22)
         client.publish("IoT/humidity", humidity)
         client.publish("IoT/temperature", temperature)
-        print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
 
 # light Thread
 class LumiThread(threading.Thread):
     def run(self):
         while True:
-            print("Lumi={}".format(RCtime(6)))
+            readLumi(6)
 
 # temp and humidity thread
 class TempHumThread(threading.Thread):
@@ -65,7 +64,6 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    print(type(msg.payload))
     if msg.topic == "IoT/redLed":
         if msg.payload == "1" and GPIO.input(redLed) is GPIO.LOW:
             let_the_sun_shine(redLed)
