@@ -22,7 +22,9 @@ greenLed = 18
 GPIO.setup(14, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
-
+GPIO.output(14, GPIO.LOW)
+GPIO.output(15, GPIO.LOW)
+GPIO.output(18, GPIO.LOW)
 client = mqtt.Client() # mqtt client
 
 # Read light
