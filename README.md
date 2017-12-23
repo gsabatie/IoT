@@ -23,6 +23,7 @@ Le brocker MQTT va permettre au Raspberry et au node red de communiquer, le rasp
 ## Cahier des charges et présentation technique
 
 [carte d'extension RPi GPIO](https://www.amazon.fr/gp/product/B01N562X2P/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+
 [capteur de température et d'humidité](https://www.amazon.fr/gp/product/B06XF4TNT9/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)
 
 ## Difficultés rencontrées
