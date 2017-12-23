@@ -64,6 +64,14 @@ Les channels utilisés pour savoir si les valeurs sont dépassées sont :
 
 Ces noms sont en fonction de la led qu'ils vont allumer, lorsque le RPi va lire les données depuis les trois channels ci-dessus. Tout simplement, s'il lit `1`, la led s'allume. Sinon, elle reste éteinte.
 
+## Sécurisation de la solution
+
+Etant donné que le projet est en version alpha, nous avons choisi de ne pas mettre l'accent surla sécurité du broker MQTT.
+
+Pour assurer une sécurité, nous le faisons au niveau du réseau en lui-même, en installant notre solution dans un réseau isolé de toute activité humaine.
+
+Ceci permet de sécuriser les informations, sans pour autant devoir chiffrer les trames réseau, car celui-ci n'est tout simplement pas accessible par un humain.
+
 ## Difficultés rencontrées
 
 La première difficulté a été de choisir le matériel à utiliser.
