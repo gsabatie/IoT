@@ -22,4 +22,17 @@ Le brocker MQTT va permettre au Raspberry et au node red de communiquer, le rasp
 
 ## Cahier des charges et présentation technique
 
-## Difficultées rencontrées
+[carte d'extension RPi GPIO](https://www.amazon.fr/gp/product/B01N562X2P/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+[capteur de température et d'humidité](https://www.amazon.fr/gp/product/B06XF4TNT9/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)
+
+## Difficultés rencontrées
+
+La première difficulté a été de choisir le matériel à utiliser.
+
+Amazon est un super site de e-commerce, mais en ce qui concerne les composants electroniques, il manque de précision. Un Raspberry pi ne gérant pas la lecture analogique, nous avons du faire attention aux composants choisis, afin d'éviter d'acheter des convertisseurs à gérer nous même.
+
+
+Ensuite, notre niveau général en électronique a été un frein au projet. Nous avons du prendre des composants bien documentés car nous n'avons pas les savoirs nécessaires pour faire un montage sans tutoriel.
+Nous avons par exemple fait l'erreur de commander un capteur de lumière avec convertisseur analogique - numérique, idéal pour RPi, mais sans documentation facilement trouvable.
+Voici l'objet en question : [capteur](https://www.amazon.fr/gp/product/B01LX0K01H/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1)
+Au final, nous en avons commandé plusieurs exemplaires, tous grillés à cause de branchement incorrects.
