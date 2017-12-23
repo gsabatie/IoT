@@ -40,3 +40,7 @@ Nous avons par exemple fait l'erreur de commander un capteur de lumière avec co
 Voici l'objet en question : [capteur](https://www.amazon.fr/gp/product/B01LX0K01H/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1)
 
 Au final, nous en avons commandé plusieurs exemplaires, tous grillés à cause de branchement incorrects.
+
+Cette dernière phrase amène l'avant dernier problème, le côté financier.
+
+De base, nous voulions réaliser un projet beaucoup plus ambitieux, mais les composants les plus petits ont un prix non négligeable, surtout avec un budget d'étudiants. Nous avons fait en sorte de pouvoir faire avec un coût minimum.
