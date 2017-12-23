@@ -90,3 +90,17 @@ Au final, nous en avons commandé plusieurs exemplaires, tous grillés à cause 
 Cette dernière phrase amène l'avant dernier problème, le côté financier.
 
 De base, nous voulions réaliser un projet beaucoup plus ambitieux, mais les composants les plus petits ont un prix non négligeable, surtout avec un budget d'étudiants. Nous avons fait en sorte de pouvoir faire avec un coût minimum.
+
+## Et pour la suite ?
+
+Ce projet à intrigué le personnel de Epitech Lyon, qui souhaite mettre en place une solution se basant sur notre projet afin de monitorer les salles machines.
+
+L'idée est d'apporter un confort supplémentaire aux étudiants qui pourront voir quelle salle a les meilleures conditions pour travailler, à chaque instant de la journée.
+
+Ce projet ne va donc pas s'arrêter à la fin de notre module, mais va être repris, amélioré, et mis en production dans des échelles de plus en plus grandes.
+
+Afin de continuer le projet, nous allons changer de plateforme, pour retourner sur Arduino, et ainsi utiliser les GPIO analogiques.
+
+De plus, nous allons intégrer un système de détection de personnes via des caméras, qui est en train d'être mis en place par les Accompagnateurs pédagogiques stagiaires de cinquième année d'Epitech Lyon.
+
+Ainsi, nous pourrons interfacer ceci de la façon que nous déterminons la plus pertinente afin que les étudiants puissent devenir maitres de leur environnement, s'inscrivant dans une problématique smartcity. 
