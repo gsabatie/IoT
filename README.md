@@ -1,3 +1,15 @@
-# IoT
+# IoT II
 
-This is a mini project for Epitech's fifth year's IoT module.
+Ce projet s'inscrit dans le cadre du module IoT II, proposé aux étudiants de 5e année à Epitech.
+
+## Auteurs
+
+* Sylvain GIROD
+* Loic ECHEVET
+* Guillaume SABATIER
+
+## Présentation du projet
+
+## Cahier des charges et présentation technique
+
+## Difficultées rencontrées
