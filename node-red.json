@@ -1,0 +1,160 @@
+[
+    {
+        "id": "512ac298.877c8c",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "17333f40.993731",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "172.17.0.3",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "b0e1b59d.940828",
+        "type": "mqtt in",
+        "z": "512ac298.877c8c",
+        "name": "light",
+        "topic": "IoT/light",
+        "qos": "2",
+        "broker": "17333f40.993731",
+        "x": 70,
+        "y": 140,
+        "wires": [
+            [
+                "54d67091.b424e"
+            ]
+        ]
+    },
+    {
+        "id": "7af57fae.1e019",
+        "type": "mqtt in",
+        "z": "512ac298.877c8c",
+        "name": "temperature",
+        "topic": "IoT/temperature",
+        "qos": "2",
+        "broker": "17333f40.993731",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "30666379.e6c03c"
+            ]
+        ]
+    },
+    {
+        "id": "72a0fb3.84b2804",
+        "type": "mqtt in",
+        "z": "512ac298.877c8c",
+        "name": "humidity",
+        "topic": "IoT/humidity",
+        "qos": "2",
+        "broker": "17333f40.993731",
+        "x": 80,
+        "y": 260,
+        "wires": [
+            [
+                "545092d0.6e4c1c"
+            ]
+        ]
+    },
+    {
+        "id": "54d67091.b424e",
+        "type": "function",
+        "z": "512ac298.877c8c",
+        "name": "light payload",
+        "func": "\nif (msg.payload >= 150)\n    return {\"payload\":\"1\"};\nreturn {\"payload\":\"0\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 239.5,
+        "y": 139,
+        "wires": [
+            [
+                "4399b410.a371bc"
+            ]
+        ]
+    },
+    {
+        "id": "30666379.e6c03c",
+        "type": "function",
+        "z": "512ac298.877c8c",
+        "name": "temperature payload",
+        "func": "if (parseFloat(msg.payload) >= 35.0)\n    return {\"payload\":\"1\"};\nreturn {\"payload\":\"0\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290.5,
+        "y": 198,
+        "wires": [
+            [
+                "40782ba0.64d204"
+            ]
+        ]
+    },
+    {
+        "id": "545092d0.6e4c1c",
+        "type": "function",
+        "z": "512ac298.877c8c",
+        "name": "humidity payload",
+        "func": "if (parseFloat(msg.payload) >= 80.0)\n    return {\"payload\":\"1\"};\nreturn {\"payload\":\"0\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "ab943ec3.702ea"
+            ]
+        ]
+    },
+    {
+        "id": "4399b410.a371bc",
+        "type": "mqtt out",
+        "z": "512ac298.877c8c",
+        "name": "",
+        "topic": "IoT/whiteLed",
+        "qos": "",
+        "retain": "",
+        "broker": "17333f40.993731",
+        "x": 530,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "40782ba0.64d204",
+        "type": "mqtt out",
+        "z": "512ac298.877c8c",
+        "name": "",
+        "topic": "IoT/redLed",
+        "qos": "",
+        "retain": "",
+        "broker": "17333f40.993731",
+        "x": 554.5,
+        "y": 210,
+        "wires": []
+    },
+    {
+        "id": "ab943ec3.702ea",
+        "type": "mqtt out",
+        "z": "512ac298.877c8c",
+        "name": "",
+        "topic": "IoT/greenLed",
+        "qos": "",
+        "retain": "",
+        "broker": "17333f40.993731",
+        "x": 547.5,
+        "y": 272,
+        "wires": []
+    }
+]
