@@ -54,6 +54,7 @@ Sur celui-ci, les channels utilisés pour remonter la data sont :
 * IoT/temperature
 
 Nous écoutons ensuite ces channels sur un node-red, lui aussi installé sur un ordinateur à part, pour les mêmes raisons.
+Un dashboard en Angular 4 s'occupe d'ecouter les channels mqtt grâce à un websocket. Disponible sur [ce github](https://github.com/gsabatie/Mqtt-Listener-project)
 
 En l'état, le node-red lit les trois channels ci-dessus, et, en fonction du `payload`, publie `1` ou `0` sur un nouveau channel en fonction de paramètres définis arbitrairement dans node-red.
 
